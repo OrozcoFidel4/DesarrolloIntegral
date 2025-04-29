@@ -47,11 +47,13 @@ BASE_APPS = [
 
 THIRD_APPS = [
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
+    'drf_yasg'
+
 ]
 
 OWN_APPS = [
-    'app_auth',
+    'app_auth'
 ]
 
 INSTALLED_APPS = BASE_APPS + THIRD_APPS + OWN_APPS
@@ -146,3 +148,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW__ALL_ORIGINS = True
 CORS_ALLOWS_CREDENTIALS = True
+
+

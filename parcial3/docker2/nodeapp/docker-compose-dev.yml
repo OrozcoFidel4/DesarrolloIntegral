@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  nodejs:
+    build: 
+      context: .
+      dockerfile: dockerfile.dev
+    ports:
+      - "3000:3000"
+    links:
+      - monguito
+    volumes:
+      #- .:/home/app # el punto significa que el volumen se montara en la ruta actual (es un volumen anomino)
+      - node-data:/home/app
+  monguito:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - mongo-data:/data/db
+      # mysql -> /var/lib/mysql
+      # postgres -> /var/lib/postgresql/data
+volumes:
+  mongo-data:
+  node-data:
